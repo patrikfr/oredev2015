@@ -1,4 +1,4 @@
-package se.citerus.oredev2015;
+package se.citerus.oredev2015.duration;
 
 
 import org.junit.Test;
