@@ -13,8 +13,13 @@ public class MeetingTimeTest {
 
     @Test
     public void meetingTime() {
+        LocalTime lunchOClock = LocalTime.of(11, 30);
         LocalTime meetingStart = LocalTime.of(10, 0);
-        Duration duration = Duration.ofHours(2);
-        assertThat(meetingStart.plus(duration), is(LocalTime.of(12, 0)));
+        Duration meetingDuration = Duration.ofHours(2);
+        if (lunchOClock.isAfter(meetingStart.plus(meetingDuration))) {
+            System.out.println("Lunch is happening!");
+        } else {
+            System.out.println("No lunch for you.");
+        }
     }
 }
