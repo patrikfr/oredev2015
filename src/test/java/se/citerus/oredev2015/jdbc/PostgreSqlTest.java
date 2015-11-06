@@ -44,10 +44,10 @@ public class PostgreSqlTest {
             final Statement qryStatement = connection.createStatement();
             final ResultSet rs = qryStatement.executeQuery("SELECT sometime, sometimez FROM time WHERE id = '7da1e06e-5418-47ff-87e0-f9e21a6cdbd5'");
             rs.next();
-            final Timestamp sometime = rs.getTimestamp("sometime");
-            final Timestamp sometimez = rs.getTimestamp("sometimez");
-            assertThat(sometime.toLocalDateTime(), is(time));
-            assertThat(sometimez.toLocalDateTime(), is(time));
+            final LocalDateTime sometime = rs.getTimestamp("sometime").toLocalDateTime();
+            final LocalDateTime sometimez = rs.getTimestamp("sometimez").toLocalDateTime();
+            assertThat(sometime, is(time));
+            assertThat(sometimez, is(time));
 
         }
     }
